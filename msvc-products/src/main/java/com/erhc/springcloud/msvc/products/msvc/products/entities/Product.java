@@ -1,11 +1,18 @@
 package com.erhc.springcloud.msvc.products.msvc.products.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
 @Table(name="productos")
 public class Product implements Serializable {
@@ -20,4 +27,8 @@ public class Product implements Serializable {
     private String name;
 
     private Double price;
+
+    @Column(name="create_at")
+    private LocalDate createAt;
 }
+
