@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name="productos")
+@Table(name="products")
 public class Product implements Serializable {
 
     @Serial
