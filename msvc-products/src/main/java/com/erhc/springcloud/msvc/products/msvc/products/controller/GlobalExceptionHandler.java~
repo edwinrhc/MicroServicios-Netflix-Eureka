@@ -1,0 +1,2 @@
+package com.erhc.springcloud.msvc.products.msvc.products.controller;public class GlobalExceptionHandler {
+}
