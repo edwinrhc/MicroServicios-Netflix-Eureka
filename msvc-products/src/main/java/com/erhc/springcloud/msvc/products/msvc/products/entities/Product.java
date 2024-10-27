@@ -30,5 +30,8 @@ public class Product implements Serializable {
 
     @Column(name="create_at")
     private LocalDate createAt;
+
+    @Transient
+    private int port;
 }
 
