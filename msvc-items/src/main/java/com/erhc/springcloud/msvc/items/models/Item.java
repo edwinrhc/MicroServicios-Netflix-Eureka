@@ -12,7 +12,7 @@ public class Item {
     private int quantity;
 
 
-    public Double getTotal(){
-        return product.getPrice() * quantity;
+    public Double getTotal() {
+        return (product.getPrice() != null ? product.getPrice() * quantity : 0.0) * quantity;
     }
 }

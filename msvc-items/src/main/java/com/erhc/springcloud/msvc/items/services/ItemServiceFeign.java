@@ -2,6 +2,7 @@ package com.erhc.springcloud.msvc.items.services;
 
 
 import com.erhc.springcloud.msvc.items.clients.ProductFeignClient;
+import com.erhc.springcloud.msvc.items.dto.SuccessResponse;
 import com.erhc.springcloud.msvc.items.models.Item;
 import com.erhc.springcloud.msvc.items.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +31,17 @@ public class ItemServiceFeign implements ItemService {
 
     @Override
     public Optional<Item> findById(Long id) {
-       Product product = client.details(id);
-        if(product == null){
+        SuccessResponse<Product> response = client.details(id);
+        Product product = response.getData(); // Extrae el producto desde `data`.
+        if (product == null) {
             return Optional.empty();
         }
-        return Optional.of(new Item(product,new Random().nextInt(10) + 1));
+        return Optional.of(new Item(product, new Random().nextInt(10) + 1));
+
+//       Product product = client.details(id);
+//        if(product == null){
+//            return Optional.empty();
+//        }
+//        return Optional.of(new Item(product,new Random().nextInt(10) + 1));
     }
 }
