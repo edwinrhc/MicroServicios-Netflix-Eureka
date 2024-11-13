@@ -18,4 +18,7 @@ public class Product {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double price = 0.0;
     private LocalDate createAt;
+    private int port;
+
+
 }

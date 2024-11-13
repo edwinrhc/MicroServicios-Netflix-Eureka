@@ -23,10 +23,16 @@ public class ItemServiceFeign implements ItemService {
 
     @Override
     public List<Item> findAll() {
-        return client.findAll().stream().map(product ->{
-            Random random = new Random();
-            return new Item(product, random.nextInt(10) + 1);
-        }).collect(Collectors.toList());
+        try{
+            return client.findAll().stream().map(product ->{
+                Random random = new Random();
+                return new Item(product, random.nextInt(10) + 1);
+            }).collect(Collectors.toList());
+        }catch (Exception e){
+            System.err.println("Error al intentar obtener productos: " + e.getMessage());
+            e.printStackTrace();  // Log detallado para ayudar a identificar el problema
+            throw new RuntimeException("Error en la llamada a Feign client para obtener productos.");
+        }
     }
 
     @Override
