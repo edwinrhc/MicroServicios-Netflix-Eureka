@@ -3,6 +3,7 @@ package com.erhc.springcloud.msvc.items.controllers;
 import com.erhc.springcloud.msvc.items.models.Item;
 import com.erhc.springcloud.msvc.items.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class ItemController {
 
     private final ItemService itemService;
 
-    public ItemController(ItemService itemService) {
+    public ItemController(@Qualifier("itemServiceWebClient") ItemService itemService) {
         this.itemService = itemService;
     }
 

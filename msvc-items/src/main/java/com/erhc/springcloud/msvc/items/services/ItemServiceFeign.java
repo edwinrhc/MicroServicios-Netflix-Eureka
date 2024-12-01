@@ -6,6 +6,7 @@ import com.erhc.springcloud.msvc.items.dto.SuccessResponse;
 import com.erhc.springcloud.msvc.items.models.Item;
 import com.erhc.springcloud.msvc.items.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +14,9 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+
 @Service
+//@Primary
 public class ItemServiceFeign implements ItemService {
 
     @Autowired
