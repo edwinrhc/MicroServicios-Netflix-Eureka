@@ -34,7 +34,7 @@ public class ItemServiceWebClient implements ItemService {
     public List<Item> findAll() {
         return this.client.build()
                 .get()
-                .uri("http://msvc-products/api/products/")
+                .uri("/api/products/")
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .onStatus(
@@ -55,7 +55,7 @@ public class ItemServiceWebClient implements ItemService {
     public Optional<Item> findById(Long id) {
         return Optional.ofNullable(client.build()
                 .get()
-                .uri("http://msvc-products/api/products/{id}", id)
+                .uri("/api/products/{id}", id)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .onStatus(
